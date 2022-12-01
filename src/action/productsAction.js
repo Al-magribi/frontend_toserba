@@ -71,7 +71,6 @@ export const getProductDetail = (id) => async (dispatch) => {
     const { data } = await axios.get(
       `https://toserba.adaptable.app/api/toserba/produk/${id}`
     );
-    console.log(data);
 
     dispatch({
       type: PRODUCT_DETAIL_SUCCESS,
