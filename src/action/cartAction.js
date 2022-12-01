@@ -8,9 +8,7 @@ import {
 
 export const addToCart = (id, quantity) => async (dispatch, getState) => {
   // mencari id produk
-  const { data } = await axios.get(
-    `https://toserba.adaptable.app/api/toserba/produk/${id}`
-  );
+  const { data } = await axios.get(`/api/toserba/produk/${id}`);
 
   dispatch({
     type: ADD_TO_CART,

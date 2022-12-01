@@ -31,9 +31,7 @@ export const getOrders = () => async (dispatch) => {
       type: ADMIN_ORDERS_REQUEST,
     });
 
-    const { data } = await axios.get(
-      "https://toserba.adaptable.app/api/toserba/admin/orders"
-    );
+    const { data } = await axios.get("/api/toserba/admin/orders");
 
     dispatch({
       type: ADMIN_ORDERS_SUCCESS,
@@ -62,7 +60,7 @@ export const updateOrder = (id, orderData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `https://toserba.adaptable.app/api/toserba/admin/order/update/${id}`,
+      `/api/toserba/admin/order/update/${id}`,
       orderData,
       config
     );
@@ -86,9 +84,7 @@ export const deleteOrder = (id) => async (dispatch) => {
       type: DELETE_ORDERS_REQUEST,
     });
 
-    const { data } = await axios.delete(
-      `https://toserba.adaptable.app/api/toserba/admin/order/${id}`
-    );
+    const { data } = await axios.delete(`/api/toserba/admin/order/${id}`);
 
     dispatch({
       type: DELETE_ORDERS_SUCCESS,
@@ -138,9 +134,7 @@ export const myOrders = () => async (dispatch) => {
       type: MY_ORDERS_REQUEST,
     });
 
-    const { data } = await axios.get(
-      "https://toserba.adaptable.app/api/toserba/orders/me"
-    );
+    const { data } = await axios.get("/api/toserba/orders/me");
     dispatch({
       type: MY_ORDERS_SUCCESS,
       payload: data.orders,
@@ -166,9 +160,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
       type: ORDER_DETAILS_REQUEST,
     });
 
-    const { data } = await axios.get(
-      `https://toserba.adaptable.app/api/toserba/order/${id}`
-    );
+    const { data } = await axios.get(`/api/toserba/order/${id}`);
 
     dispatch({
       type: ORDER_DETAILS_SUCCESS,
@@ -196,7 +188,7 @@ export const updatePayment = (id, statusData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `https://toserba.adaptable.app/api/toserba/payment/status/${id}`,
+      `/api/toserba/payment/status/${id}`,
       statusData,
       config
     );
