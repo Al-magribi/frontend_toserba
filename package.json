@@ -62,5 +62,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://github.com/Al-magribi/frontend_toserba"
+  "homepage": "https://github.com/Al-magribi/frontend_toserba",
+  "proxy": "http://localhost:2000"
 }
