@@ -63,5 +63,5 @@
     ]
   },
   "homepage": "https://github.com/Al-magribi/frontend_toserba",
-  "proxy": "http://localhost:2000"
+  "proxy": "https://toserba.adaptable.app/"
 }

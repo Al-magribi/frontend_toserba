@@ -55,6 +55,7 @@ export const getProducts = (
       payload: data,
     });
   } catch (error) {
+    console.log(error);
     dispatch({
       type: ALL_PRODUCTS_FAIL,
       payload: error.response.data.message,
@@ -70,6 +71,7 @@ export const getProductDetail = (id) => async (dispatch) => {
     const { data } = await axios.get(
       `https://toserba.adaptable.app/api/toserba/produk/${id}`
     );
+    console.log(data);
 
     dispatch({
       type: PRODUCT_DETAIL_SUCCESS,
