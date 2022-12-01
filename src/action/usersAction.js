@@ -45,7 +45,9 @@ export const getUsers = () => async (dispatch) => {
       type: GET_USERS_REQUEST,
     });
 
-    const { data } = await axios.get("/api/toserba/admin/users");
+    const { data } = await axios.get(
+      "https://toserba.adaptable.app/api/toserba/admin/users"
+    );
 
     dispatch({
       type: GET_USERS_SUCCESS,
@@ -71,7 +73,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/toserba/admin/user/update/${id}`,
+      `https://toserba.adaptable.app/api/toserba/admin/user/update/${id}`,
       userData,
       config
     );
@@ -95,7 +97,9 @@ export const userDetail = (id) => async (dispatch) => {
       type: DETAIL_USER_REQUEST,
     });
 
-    const { data } = await axios.get(`/api/toserba/admin/user/${id}`);
+    const { data } = await axios.get(
+      `https://toserba.adaptable.app/api/toserba/admin/user/${id}`
+    );
 
     dispatch({
       type: DETAIL_USER_SUCCESS,
@@ -116,7 +120,9 @@ export const deleteUser = (id) => async (dispatch) => {
       type: DELETE_USER_REQUEST,
     });
 
-    const { data } = await axios.delete(`/api/toserba/admin/user/delete/${id}`);
+    const { data } = await axios.delete(
+      `https://toserba.adaptable.app/api/toserba/admin/user/delete/${id}`
+    );
 
     dispatch({
       type: DELETE_USER_SUCCESS,
@@ -173,7 +179,11 @@ export const register = (userData) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post("/api/toserba/daftar", userData, config);
+    const { data } = await axios.post(
+      "https://toserba.adaptable.app/api/toserba/daftar",
+      userData,
+      config
+    );
 
     dispatch({
       type: REGISTER_SUCCESS,
@@ -194,7 +204,9 @@ export const loadUser = () => async (dispatch) => {
       type: LOAD_USER_REQUEST,
     });
 
-    const { data } = await axios.get("/api/toserba/me");
+    const { data } = await axios.get(
+      "https://toserba.adaptable.app/api/toserba/me"
+    );
 
     dispatch({
       type: LOAD_USER_SUCCESS,
@@ -211,7 +223,7 @@ export const loadUser = () => async (dispatch) => {
 // Logout
 export const logout = () => async (dispatch) => {
   try {
-    await axios.get("/api/toserba/logout");
+    await axios.get("https://toserba.adaptable.app/api/toserba/logout");
 
     dispatch({
       type: LOGOUT_SUCCESS,
@@ -238,7 +250,7 @@ export const updateProfile = (userData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      "/api/toserba/me/update",
+      "https://toserba.adaptable.app/api/toserba/me/update",
       userData,
       config
     );
@@ -269,7 +281,7 @@ export const updatePassword = (password) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      "/api/toserba/password/update",
+      "https://toserba.adaptable.app/api/toserba/password/update",
       password,
       config
     );
@@ -299,7 +311,11 @@ export const forgotPassword = (email) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post("/api/toserba/forgot", email, config);
+    const { data } = await axios.post(
+      "https://toserba.adaptable.app/api/toserba/forgot",
+      email,
+      config
+    );
 
     dispatch({
       type: FORGOT_PASSWORD_SUCCESS,
@@ -328,7 +344,7 @@ export const resetPassword = (password, token) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/toserba/reset/${token}`,
+      `https://toserba.adaptable.app/api/toserba/reset/${token}`,
       password,
       config
     );

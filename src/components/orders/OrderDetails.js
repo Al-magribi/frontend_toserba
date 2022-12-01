@@ -104,7 +104,9 @@ const OrderDetails = () => {
   };
 
   const getPaymentStatus = async (id) => {
-    const data = await fetch(`/api/toserba/status/${id}`);
+    const data = await fetch(
+      `https://toserba.adaptable.app/api/toserba/status/${id}`
+    );
     const result = await data.json();
     const status = result.response.transaction_status;
 

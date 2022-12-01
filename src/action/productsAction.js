@@ -42,10 +42,10 @@ export const getProducts = (
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
     // API DATA Product dari backend
-    let link = `/api/toserba/produk?keyword=${keyword}&page=${currentPage}&harga[lte]=${harga[1]}&harga[gte]=${harga[0]}&rating[gte]=${rating}`;
+    let link = `https://toserba.adaptable.app/api/toserba/produk?keyword=${keyword}&page=${currentPage}&harga[lte]=${harga[1]}&harga[gte]=${harga[0]}&rating[gte]=${rating}`;
 
     if (kategori) {
-      link = `/api/toserba/produk?keyword=${keyword}&page=${currentPage}&harga[lte]=${harga[1]}&harga[gte]=${harga[0]}&kategori=${kategori}&rating[gte]=${rating}`;
+      link = `https://toserba.adaptable.app/api/toserba/produk?keyword=${keyword}&page=${currentPage}&harga[lte]=${harga[1]}&harga[gte]=${harga[0]}&kategori=${kategori}&rating[gte]=${rating}`;
     }
 
     const { data } = await axios.get(link);
@@ -67,7 +67,9 @@ export const getProductDetail = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAIL_REQUEST });
 
-    const { data } = await axios.get(`/api/toserba/produk/${id}`);
+    const { data } = await axios.get(
+      `https://toserba.adaptable.app/api/toserba/produk/${id}`
+    );
 
     dispatch({
       type: PRODUCT_DETAIL_SUCCESS,
@@ -95,7 +97,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `/api/toserba/admin/produk/update/${id}`,
+      `https://toserba.adaptable.app/api/toserba/admin/produk/update/${id}`,
       productData,
       config
     );
@@ -125,7 +127,11 @@ export const createReview = (dataReview) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.put("/api/toserba/review", dataReview, config);
+    const { data } = await axios.put(
+      "https://toserba.adaptable.app/api/toserba/review",
+      dataReview,
+      config
+    );
 
     dispatch({
       type: NEW_REVIEW_SUCCESS,
@@ -152,7 +158,7 @@ export const createProducts = (productData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "/api/toserba/admin/produk/tambah",
+      "https://toserba.adaptable.app/api/toserba/admin/produk/tambah",
       productData,
       config
     );
@@ -174,7 +180,9 @@ export const getAdminProducts = () => async (dispatch) => {
   try {
     dispatch({ type: ADMIN_PRODUCTS_REQUEST });
 
-    const { data } = await axios.get(`/api/toserba/admin/products`);
+    const { data } = await axios.get(
+      `https://toserba.adaptable.app/api/toserba/admin/products`
+    );
 
     dispatch({
       type: ADMIN_PRODUCTS_SUCCESS,
@@ -194,7 +202,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
 
     const { data } = await axios.delete(
-      `/api/toserba/admin/produk/hapus/${id}`
+      `https://toserba.adaptable.app/api/toserba/admin/produk/hapus/${id}`
     );
 
     dispatch({
@@ -216,7 +224,9 @@ export const getReviews = (id) => async (dispatch) => {
       type: GET_REVIEWS_REQUEST,
     });
 
-    const { data } = await axios.get(`/api/toserba/reviews?id=${id}`);
+    const { data } = await axios.get(
+      `https://toserba.adaptable.app/api/toserba/reviews?id=${id}`
+    );
 
     dispatch({
       type: GET_REVIEWS_SUCCESS,
@@ -238,7 +248,7 @@ export const deleteReview = (productId, reviewId) => async (dispatch) => {
     });
 
     const { data } = await axios.delete(
-      `/api/toserba/reviews?productId=${productId}&id=${reviewId}`
+      `https://toserba.adaptable.app/api/toserba/reviews?productId=${productId}&id=${reviewId}`
     );
 
     dispatch({
